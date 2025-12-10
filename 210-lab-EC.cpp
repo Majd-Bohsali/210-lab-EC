@@ -23,6 +23,14 @@ int main() {
         cout << "File could not open"; 
     }
 
+    // Milestone 1: print movie titles and ratings 
+    for(auto it = movieRatings.begin(); it != movieRatings.end(); it++) { 
+        cout << it->first << ": "; 
+        for(int rating : it->second) { 
+            cout << rating << " "; 
+        }
+        cout << endl; 
+    }
 
     return 0; 
 }
