@@ -25,6 +25,9 @@ int main() {
     }
 
     // Milestone 1 & 2: print movie titles, ratings, and averge rating
+    // Milestone 3: Finds highest average rating
+    double highestAvgRating = 0.0;
+    vector<string> highestMovies; 
     for(auto it = movieRatings.begin(); it != movieRatings.end(); it++) { 
         cout << it->first << ": ";
         int total = 0;  
@@ -32,7 +35,12 @@ int main() {
             cout << rating << " "; 
             total += rating; 
         }
-        cout << endl << "    Average Rating: " << setprecision(3) <<(double) total / (it->second.size()) << endl << endl; 
+        double movieAvg = (double) total / (it->second.size());
+        cout << endl << "    Average Rating: " << setprecision(3) << movieAvg << endl << endl; 
+
+        if(movieAvg > highestAvgRating) { 
+            
+        }
     }
 
     // Milestone 2: Prints total number of movies
