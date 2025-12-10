@@ -38,12 +38,21 @@ int main() {
         double movieAvg = (double) total / (it->second.size());
         cout << endl << "    Average Rating: " << setprecision(3) << movieAvg << endl << endl; 
 
-        if(movieAvg > highestAvgRating) { 
-            
+        if (movieAvg == highestAvgRating) { 
+            highestMovies.push_back(it->first); // adds new movie
+        } else if(movieAvg > highestAvgRating) { 
+            highestAvgRating = movieAvg; 
+            highestMovies.clear(); // resets since highest has changed
+            highestMovies.push_back(it->first); 
         }
     }
 
     // Milestone 2: Prints total number of movies
     cout << "Total number of Movies: " << movieRatings.size() << endl;
+
+    cout << "Movies with the highset average rating of " << highestAvgRating << ": "; 
+    for(int i = 0; i < highestMovies.size(); i++) { 
+        cout << highestMovies.at(i) << " "; 
+    }
     return 0; 
 }  
