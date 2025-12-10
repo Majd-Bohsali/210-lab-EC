@@ -5,6 +5,7 @@
 #include <vector>
 #include <fstream>
 #include <string>
+#include <iomanip>
 using namespace std;
 
 int main() { 
@@ -23,14 +24,18 @@ int main() {
         cout << "File could not open"; 
     }
 
-    // Milestone 1: print movie titles and ratings 
+    // Milestone 1 & 2: print movie titles, ratings, and averge rating
     for(auto it = movieRatings.begin(); it != movieRatings.end(); it++) { 
-        cout << it->first << ": "; 
+        cout << it->first << ": ";
+        int total = 0;  
         for(int rating : it->second) { 
             cout << rating << " "; 
+            total += rating; 
         }
-        cout << endl; 
+        cout << endl << "    Average Rating: " << setprecision(3) <<(double) total / (it->second.size()) << endl << endl; 
     }
 
+    // Milestone 2: Prints total number of movies
+    cout << "Total number of Movies: " << movieRatings.size() << endl;
     return 0; 
-}
+}  
